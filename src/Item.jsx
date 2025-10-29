@@ -1,8 +1,8 @@
-import React, { Children } from "react";
+import React, {children} from "react";
 import PropTypes from "prop-types";
 import './Item.css';
 
-const Item = ({item, onAddToCart}) => {
+const Item = ({item, children}) => {
     return(
     <div className="Item">
 
@@ -22,7 +22,7 @@ const Item = ({item, onAddToCart}) => {
             <div className="Item-price">
                 ${item.price}
             </div>
-            {Children}
+            {children}
         </div>
     </div>
     )

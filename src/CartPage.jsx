@@ -3,12 +3,22 @@ import PropTypes from "prop-types";
 import "./CartPage.css";
 import Item from "./Item.jsx";
 
-function CartPage({ items, onAddToCart }) {
+function CartPage({ items, onAddOne, onRemoveOne}) {
   return (
     <ul className="CartPage-items">
       {items.map((item) => (
         <li key={item.id} className="CartPage-item">
-          <Item item={item}/>
+          <Item item={item}>
+          <div className="CarItem-controls">
+            <button className="CartItem-removeOne"
+            onClick={()=>onRemoveOne(item)}>-</button>
+
+            <span className="CartItem-count">{item.count}</span>
+            
+            <button className="CarItem-addOne"
+            onClick={()=>onAddOne(item)}>+</button>
+          </div>
+          </Item>
         </li>
       ))}
     </ul>
@@ -17,6 +27,8 @@ function CartPage({ items, onAddToCart }) {
 
 CartPage.propTypes = {
   items: PropTypes.array.isRequired,
+  onAddOne:PropTypes.func.isRequired,
+  onRemoveOne:PropTypes.func.isRequired
 };
 
 export default CartPage;
