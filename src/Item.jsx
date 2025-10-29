@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import PropTypes from "prop-types";
 import './Item.css';
 
@@ -22,11 +22,7 @@ const Item = ({item, onAddToCart}) => {
             <div className="Item-price">
                 ${item.price}
             </div>
-            <div>
-                <button className="Item-addToCart" onclick={onAddToCart}>
-                    Add to Cart
-                </button>
-            </div>
+            {Children}
         </div>
     </div>
     )
@@ -34,7 +30,6 @@ const Item = ({item, onAddToCart}) => {
 
 Item.propTypes ={
     item: PropTypes.object.isRequired,
-    onAddToCart: PropTypes.func.isRequired
 };
 
 export default Item;
